@@ -1,8 +1,10 @@
+from models.transaction import Transaction
+
 class Initialize():
 
 
-    def __init__(self):
-        self.__transactions = []
+    #def __init__(self):
+
 
 
     def show_menu(self):
@@ -29,12 +31,14 @@ class Initialize():
         value = input('\nInforme o valor da operação: ')
         description = input('\nInforme a descrição: ')
 
-        self.__transactions.append((operation, value, description))
+        transaction = Transaction(operation, value, description)
+        transaction.save()
 
-    
+        del transaction
+
+
     def view(self):
-        for transaction in self.__transactions:
-            print(f'\nOperação: {transaction[0]} - Valor: {transaction[1]} - Descrição: {transaction[2]}')
+        Transaction().view() #static class
 
 
     def exit(self):
@@ -56,4 +60,3 @@ if __name__ == '__main__':
         elif option == '3':
             init.exit()
 
-            

@@ -40,6 +40,7 @@ class Initialize():
     def view(self):
         Transaction().view() #static class
 
+
     def exit(self):
         print('\nObrigado, volte sempre!')
 
